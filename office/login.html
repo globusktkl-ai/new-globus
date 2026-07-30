@@ -1,60 +1,219 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Office Login — ERP</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/login.css">
+
+```
+<title>Office Login - New Globus ERP</title>
+
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/login.css">
+
+<style>
+    body{
+        margin:0;
+        font-family:Arial,Helvetica,sans-serif;
+        background:#f4f6f9;
+    }
+
+    .login-page{
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:20px;
+    }
+
+    .login-card{
+        width:100%;
+        max-width:420px;
+        background:#fff;
+        border-radius:18px;
+        padding:35px;
+        box-shadow:0 10px 35px rgba(0,0,0,0.12);
+    }
+
+    .login-logo{
+        text-align:center;
+        margin-bottom:30px;
+    }
+
+    .login-logo img{
+        width:90px;
+        height:90px;
+        object-fit:contain;
+        margin-bottom:15px;
+    }
+
+    .login-logo h1{
+        margin:0;
+        font-size:28px;
+        color:#1a3a5c;
+    }
+
+    .login-logo p{
+        margin-top:8px;
+        color:#666;
+    }
+
+    .form-group{
+        margin-bottom:18px;
+    }
+
+    .form-label{
+        display:block;
+        margin-bottom:8px;
+        font-weight:600;
+        color:#333;
+    }
+
+    .form-input{
+        width:100%;
+        padding:14px;
+        border:1px solid #ddd;
+        border-radius:10px;
+        font-size:16px;
+    }
+
+    .password-wrapper{
+        position:relative;
+    }
+
+    .password-toggle{
+        position:absolute;
+        right:12px;
+        top:50%;
+        transform:translateY(-50%);
+        border:none;
+        background:none;
+        cursor:pointer;
+        font-size:18px;
+    }
+
+    .remember-row{
+        display:flex;
+        align-items:center;
+        gap:8px;
+        margin-bottom:22px;
+    }
+
+    .login-btn{
+        width:100%;
+        padding:14px;
+        background:#1a3a5c;
+        color:#fff;
+        border:none;
+        border-radius:10px;
+        font-size:16px;
+        font-weight:600;
+        cursor:pointer;
+    }
+
+    .login-btn:hover{
+        background:#15304d;
+    }
+
+    .login-error{
+        display:none;
+        background:#ffe6e6;
+        color:#c62828;
+        padding:12px;
+        border-radius:8px;
+        margin-bottom:18px;
+    }
+
+    .login-footer{
+        text-align:center;
+        margin-top:24px;
+    }
+
+    .login-footer a{
+        color:#1a3a5c;
+        text-decoration:none;
+        font-weight:600;
+    }
+</style>
+```
+
 </head>
 <body>
-    <div class="login-page">
-        <div class="login-card">
-            <div class="login-logo">
-                <div class="logo-icon" id="logo-icon">G</div>
-                <h1 id="login-title">Office Login</h1>
-                <p id="login-subtitle">Sign in to your office account</p>
-            </div>
 
-            <div class="login-error" id="login-error"></div>
+<div class="login-page">
 
-            <form class="login-form" id="login-form" autocomplete="off">
-                <div class="form-group">
-                    <label class="form-label" for="email">Email</label>
-                    <input type="email" id="email" class="form-input" placeholder="Enter your email" required autocomplete="email">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="password">Password</label>
-                    <div class="password-wrapper">
-                        <input type="password" id="password" class="form-input" placeholder="Enter your password" required autocomplete="current-password">
-                        <button type="button" class="password-toggle" onclick="togglePassword()">👁</button>
-                    </div>
-                </div>
-                <div class="remember-row">
-                    <input type="checkbox" id="remember">
-                    <label for="remember">Remember Login</label>
-                </div>
-                <button type="submit" class="login-btn" id="login-btn">Sign In</button>
-            </form>
+```
+<div class="login-card">
 
-            <div class="login-footer">
-                Don't have an account? <a href="../signup.html">Register here</a>
-            </div>
-        </div>
+    <div class="login-logo">
+        <img src="../assets/logo.png" alt="New Globus ERP Logo">
+        <h1>Office Login</h1>
+        <p>Sign in to continue</p>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <div class="login-error" id="login-error"></div>
+
+    <form id="login-form" autocomplete="on">
+
+        <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                class="form-input"
+                placeholder="office@newglobus.com"
+                autocomplete="email"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <div class="password-wrapper">
+                <input
+                    type="password"
+                    id="password"
+                    class="form-input"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required>
+
+                <button
+                    type="button"
+                    class="password-toggle"
+                    id="pwd-toggle">
+                    👁
+                </button>
+            </div>
+        </div>
+
+        <div class="remember-row">
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember Login</label>
+        </div>
+
+        <button
+            type="submit"
+            class="login-btn"
+            id="login-btn">
+
+            Sign In
+
+        </button>
+
+    </form>
+
+    <div class="login-footer">
+        <a href="../index.html">← Back to Home</a>
+    </div>
+
+</div>
+```
+
+</div>
+
 <script src="../assets/js/supabase.js"></script>
+
 <script src="js/login.js"></script>
-    <script>
-function togglePassword() {
-    const password = document.getElementById('password');
-    if (password.type === 'password') {
-        password.type = 'text';
-    } else {
-        password.type = 'password';
-    }
-}
-</script>
+
 </body>
 </html>
