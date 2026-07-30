@@ -2,7 +2,6 @@
 
 * Office Login Logic
 * NEW GLOBUS ERP v1.00
-* Uses office_users table
   */
 
 (function () {
@@ -12,6 +11,7 @@
 // Already logged in?
 if (localStorage.getItem('office_logged_in') === 'true') {
     window.location.replace('index.html');
+    return;
 }
 
 // Password toggle
@@ -54,7 +54,11 @@ if (form) {
         btn.textContent = 'Signing In...';
 
         try {
-            const { data, error } = await supabase
+            if (!window.supabase) {
+                throw new Error('Supabase not initialized');
+            }
+
+            const { data, error } = await window.supabase
                 .from('office_users')
                 .select('*')
                 .eq('email', email)
@@ -80,11 +84,12 @@ if (form) {
                 localStorage.removeItem('office_remember');
             }
 
-            window.location.replace('index.html');
+            btn.textContent = 'Success';
+            window.location.href = 'index.html';
 
         } catch (err) {
             console.error(err);
-            showError('Login failed. Please try again.');
+            showError(err.message || 'Login failed. Please try again.');
             btn.disabled = false;
             btn.textContent = 'Sign In';
         }
@@ -99,4 +104,3 @@ function showError(msg) {
 ```
 
 })();
-
