@@ -14,15 +14,21 @@ const _supabaseScript = document.createElement('script');
 _supabaseScript.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
 document.head.appendChild(_supabaseScript);
 
-let supabase = null;
+let supabaseClient = null;
 
 function getSupabase() {
-    if (!supabase) {
+    if (!supabaseClient) {
         if (typeof window.supabase !== 'undefined' && window.supabase.createClient) {
-            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            supabaseClient = window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_ANON_KEY
+            );
+
+            // Make the client globally available
+            window.supabaseClient = supabaseClient;
         }
     }
-    return supabase;
+    return supabaseClient;
 }
 
 /* Wait for supabase to load */
