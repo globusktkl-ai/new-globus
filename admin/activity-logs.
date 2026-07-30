@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Logs — ERP Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <nav class="admin-nav">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <div class="nav-logo">🕐</div>
+                <div><div class="nav-title">Activity Logs</div><div class="nav-subtitle">Audit Trail</div></div>
+            </div>
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <button class="nav-btn" onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="page-header">
+            <h1>🕐 Activity Logs</h1>
+            <button class="btn btn-secondary" onclick="exportLogs()">📤 Export</button>
+        </div>
+
+        <div class="toolbar">
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" id="search-input" placeholder="Search logs...">
+            </div>
+            <select class="form-select" id="filter-module" style="max-width:180px;">
+                <option value="">All Modules</option>
+                <option value="students">Students</option>
+                <option value="fees">Fees</option>
+                <option value="attendance">Attendance</option>
+                <option value="settings">Settings</option>
+            </select>
+        </div>
+
+        <div class="card" style="padding:0;">
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Date/Time</th><th>User</th><th>Role</th><th>Action</th><th>Module</th></tr>
+                    </thead>
+                    <tbody id="logs-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="js/activity-logs.js"></script>
+</body>
+</html>
+
