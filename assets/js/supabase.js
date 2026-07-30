@@ -5,8 +5,9 @@
  * Replace SUPABASE_URL and SUPABASE_ANON_KEY with your project credentials.
  */
 
-const SUPABASE_URL = 'https://YOUR_PROJECT.supabase.co';
-const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY';
+const SUPABASE_URL = 'https://kwrugdbrzrfbmibaccwr.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_Pf_pB13Hv4ycYmNSiD75XQ_cT0b5eOM
+';
 
 /* Load Supabase JS client from CDN */
 const _supabaseScript = document.createElement('script');
