@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html><head><meta charset='UTF-8'><title>Dashboard</title></head>
+<body>
+<h1>Office Dashboard</h1>
+<p id='name'></p>
+<button id='logout'>Logout</button>
+<script>
+if(localStorage.getItem('office_logged_in')!=='true'){location.replace('login.html');}
+document.getElementById('name').textContent = localStorage.getItem('office_user_name') || 'Office';
+document.getElementById('logout').onclick = function(){
+  localStorage.clear();
+  location.replace('login.html');
+};
+</script>
+</body></html>
