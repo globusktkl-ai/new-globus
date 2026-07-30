@@ -1,7 +1,7 @@
 /**
 
-* Office Login Logic
-* NEW GLOBUS ERP v1.00
+* NEW GLOBUS ERP v1.01
+* Office Login
   */
 
 (function () {
@@ -14,7 +14,7 @@ if (localStorage.getItem('office_logged_in') === 'true') {
     return;
 }
 
-// Password show/hide
+// Password toggle
 const toggle = document.getElementById('pwd-toggle');
 const passwordInput = document.getElementById('password');
 
@@ -30,7 +30,7 @@ if (toggle && passwordInput) {
     });
 }
 
-// Login form
+// Login
 const form = document.getElementById('login-form');
 
 if (form) {
@@ -54,16 +54,7 @@ if (form) {
         btn.textContent = 'Signing In...';
 
         try {
-            if (!window.sb) {
-    showError('Please wait 2 seconds and try again.');
-    btn.disabled = false;
-    btn.textContent = 'Sign In';
-    return;
-}
-
-const sb = window.sb;
-
-            const { data, error } = await sb
+            const { data, error } = await window.supabaseClient
                 .from('office_users')
                 .select('*')
                 .eq('email', email)
@@ -78,23 +69,24 @@ const sb = window.sb;
                 return;
             }
 
+            // Save session
             localStorage.setItem('office_logged_in', 'true');
             localStorage.setItem('office_user_id', data.id);
             localStorage.setItem('office_user_name', data.full_name);
             localStorage.setItem('office_user_role', data.role);
 
+            // Remember login
             if (remember) {
                 localStorage.setItem('office_remember', 'true');
             } else {
                 localStorage.removeItem('office_remember');
             }
 
-            btn.textContent = 'Success';
             window.location.replace('index.html');
 
         } catch (err) {
             console.error(err);
-            showError(err.message || 'Login failed. Please try again.');
+            showError('Unable to connect to server');
             btn.disabled = false;
             btn.textContent = 'Sign In';
         }
