@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Dashboard — ERP</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div>
+            <div class="nav-title" id="nav-title">Office Dashboard</div>
+            <div class="nav-subtitle" id="nav-subtitle"></div>
+        </div>
+        <div class="nav-actions">
+            <button class="nav-btn" onclick="handleLogout()">Logout ↗</button>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header" id="dashboard-header">
+            <h1>Welcome back</h1>
+            <p id="dash-date"></p>
+        </div>
+
+        <!-- Stat Cards -->
+        <div class="stat-grid" id="stat-grid">
+            <!-- Filled by JS -->
+        </div>
+
+        <!-- Quick Menu -->
+        <div class="section-title">Quick Menu</div>
+        <div class="menu-grid" id="menu-grid">
+            <!-- Filled by JS -->
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

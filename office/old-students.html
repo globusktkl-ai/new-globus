@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Students — ERP</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/students.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div>
+            <div class="nav-title">Old Students</div>
+            <div class="nav-subtitle">Finished & Discontinued</div>
+        </div>
+        <div class="nav-actions">
+            <a href="index.html" class="nav-btn">Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <!-- Tabs -->
+        <div id="tab-bar"></div>
+
+        <!-- Search -->
+        <div class="students-toolbar">
+            <div class="search-wrapper">
+                <span>🔍</span>
+                <input type="text" id="search-input" placeholder="Search old students...">
+            </div>
+        </div>
+
+        <div class="students-count" id="students-count"></div>
+
+        <!-- Content -->
+        <div class="mobile-cards" id="students-container">
+            <div class="table-container">
+                <table class="data-table" id="students-table">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="students-tbody"></tbody>
+                </table>
+            </div>
+            <div id="mobile-cards-container"></div>
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/old-students.js"></script>
+</body>
+</html>

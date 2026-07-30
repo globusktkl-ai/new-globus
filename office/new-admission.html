@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Admission — ERP</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/admission.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div>
+            <div class="nav-title" id="nav-title">New Admission</div>
+            <div class="nav-subtitle">Office Portal</div>
+        </div>
+        <div class="nav-actions">
+            <a href="index.html" class="nav-btn">← Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="card admission-form-card">
+            <!-- Photo Upload -->
+            <div class="photo-section">
+                <label class="photo-upload" id="photo-upload" title="Click to upload photo">
+                    <input type="file" accept="image/*" id="photo-input" style="display:none;">
+                    <div class="photo-placeholder" id="photo-placeholder">
+                        <span>📷</span>
+                        Student Photo
+                    </div>
+                    <img id="photo-preview" style="display:none;" alt="Preview">
+                </label>
+            </div>
+
+            <form id="admission-form" autocomplete="off">
+                <!-- Course -->
+                <div class="form-group">
+                    <label class="form-label">Course *</label>
+                    <select class="form-select" id="course-select" required>
+                        <option value="">Select Course</option>
+                    </select>
+                </div>
+
+                <!-- Name -->
+                <div class="form-group">
+                    <label class="form-label">Student Name *</label>
+                    <input type="text" class="form-input" id="student-name" placeholder="Full name" required>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label class="form-label">Phone Number *</label>
+                    <input type="tel" class="form-input" id="student-phone" placeholder="10-digit phone number" required maxlength="12">
+                    <div class="form-error" id="phone-error" style="display:none;"></div>
+                </div>
+
+                <!-- Qualification -->
+                <div class="form-group">
+                    <label class="form-label">Qualification</label>
+                    <input type="text" class="form-input" id="student-qualification" placeholder="e.g. 12th Pass, B.Sc">
+                </div>
+
+                <!-- Address -->
+                <div class="form-group">
+                    <label class="form-label">Address</label>
+                    <textarea class="form-textarea" id="student-address" placeholder="Full address"></textarea>
+                </div>
+
+                <!-- Admission Date -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Admission Date *</label>
+                        <input type="date" class="form-input" id="admission-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Student Code</label>
+                        <input type="text" class="form-input" id="student-code" readonly style="background:#f5f7fa;">
+                    </div>
+                </div>
+
+                <!-- Fee Section -->
+                <div style="margin-top:8px;">
+                    <h3 style="font-size:17px;color:#1a3a5c;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #eaf2fb;">Fee Details</h3>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Total Course Fee *</label>
+                        <input type="number" class="form-input" id="total-fee" placeholder="0" required min="0" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Admission Fee Received *</label>
+                        <input type="number" class="form-input" id="admission-fee" placeholder="0" required min="0" step="1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Payment Mode</label>
+                    <select class="form-select" id="payment-mode">
+                        <option value="Cash">Cash</option>
+                        <option value="UPI">UPI</option>
+                        <option value="Card">Card</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                        <option value="Cheque">Cheque</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Fee Summary -->
+                <div class="fee-summary" id="fee-summary">
+                    <div class="fee-row">
+                        <span class="label">Total Fee</span>
+                        <span class="value" id="summary-total">₹0</span>
+                    </div>
+                    <div class="fee-row">
+                        <span class="label">Admission Fee</span>
+                        <span class="value paid" id="summary-paid">₹0</span>
+                    </div>
+                    <div class="fee-row total">
+                        <span class="label">Balance</span>
+                        <span class="value balance" id="summary-balance">₹0</span>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div style="margin-top:24px;">
+                    <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Save Admission</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/new-admission.js"></script>
+</body>
+</html>

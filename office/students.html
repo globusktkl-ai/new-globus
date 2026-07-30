@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List — ERP</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/students.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div>
+            <div class="nav-title">Student List</div>
+            <div class="nav-subtitle">Active Students</div>
+        </div>
+        <div class="nav-actions">
+            <a href="new-admission.html" class="nav-btn">+ New</a>
+            <a href="index.html" class="nav-btn">Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <!-- Toolbar -->
+        <div class="students-toolbar">
+            <div class="search-wrapper">
+                <span>🔍</span>
+                <input type="text" id="search-input" placeholder="Search by name, code or phone...">
+            </div>
+            <select id="sort-select" class="form-select" style="max-width:200px;">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="az">A → Z</option>
+                <option value="za">Z → A</option>
+                <option value="module">By Module</option>
+                <option value="qualification">By Qualification</option>
+                <option value="course">By Course</option>
+                <option value="balance-high">Balance ↑</option>
+                <option value="balance-low">Balance ↓</option>
+                <option value="status">By Status</option>
+            </select>
+        </div>
+
+        <div class="students-count" id="students-count"></div>
+
+        <!-- Table / Cards -->
+        <div class="mobile-cards" id="students-container">
+            <div class="table-container">
+                <table class="data-table" id="students-table">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Qualification</th>
+                            <th>Module</th>
+                            <th>Balance</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="students-tbody"></tbody>
+                </table>
+            </div>
+            <div id="mobile-cards-container"></div>
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/students.js"></script>
+</body>
+</html>

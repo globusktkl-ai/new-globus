@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile — ERP</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div>
+            <div class="nav-title">Student Profile</div>
+            <div class="nav-subtitle" id="nav-sub"></div>
+        </div>
+        <div class="nav-actions">
+            <a href="students.html" class="nav-btn">← Students</a>
+        </div>
+    </nav>
+
+    <div class="page-container" id="profile-content">
+        <!-- Profile Header -->
+        <div class="profile-header" id="profile-header"></div>
+
+        <!-- Personal Details -->
+        <div class="profile-section" id="personal-section"></div>
+
+        <!-- Course Details -->
+        <div class="profile-section" id="course-section"></div>
+
+        <!-- Fee Summary -->
+        <div class="profile-section" id="fee-section"></div>
+
+        <!-- Payment History -->
+        <div class="profile-section" id="payments-section"></div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/student-profile.js"></script>
+</body>
+</html>

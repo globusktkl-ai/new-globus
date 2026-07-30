@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student — ERP</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/admission.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div>
+            <div class="nav-title">Edit Student</div>
+            <div class="nav-subtitle" id="nav-sub"></div>
+        </div>
+        <div class="nav-actions">
+            <a href="#" id="back-btn" class="nav-btn">← Back</a>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="card admission-form-card">
+            <!-- Photo -->
+            <div class="photo-section">
+                <label class="photo-upload" id="photo-upload" title="Click to change photo">
+                    <input type="file" accept="image/*" id="photo-input" style="display:none;">
+                    <div class="photo-placeholder" id="photo-placeholder">
+                        <span>📷</span>
+                        Student Photo
+                    </div>
+                    <img id="photo-preview" style="display:none;" alt="Preview">
+                </label>
+            </div>
+
+            <form id="edit-form" autocomplete="off">
+                <!-- Name -->
+                <div class="form-group">
+                    <label class="form-label">Student Name *</label>
+                    <input type="text" class="form-input" id="student-name" required>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label class="form-label">Phone Number *</label>
+                    <input type="tel" class="form-input" id="student-phone" required maxlength="12">
+                </div>
+
+                <!-- Qualification -->
+                <div class="form-group">
+                    <label class="form-label">Qualification</label>
+                    <input type="text" class="form-input" id="student-qualification">
+                </div>
+
+                <!-- Address -->
+                <div class="form-group">
+                    <label class="form-label">Address</label>
+                    <textarea class="form-textarea" id="student-address"></textarea>
+                </div>
+
+                <!-- Course -->
+                <div class="form-group">
+                    <label class="form-label">Course</label>
+                    <select class="form-select" id="course-select">
+                        <option value="">Select Course</option>
+                    </select>
+                </div>
+
+                <!-- Module -->
+                <div class="form-group">
+                    <label class="form-label">Current Module</label>
+                    <select class="form-select" id="module-select">
+                        <option value="">Select Module</option>
+                    </select>
+                </div>
+
+                <!-- Status -->
+                <div class="form-group">
+                    <label class="form-label">Student Status</label>
+                    <select class="form-select" id="status-select">
+                        <option value="Active">Active</option>
+                        <option value="Course Finished">Course Finished</option>
+                        <option value="Discontinued">Discontinued</option>
+                    </select>
+                </div>
+
+                <!-- Actions -->
+                <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px;">
+                    <button type="submit" class="btn btn-primary btn-block" id="save-btn">Save Changes</button>
+                    <button type="button" class="btn btn-success btn-block" id="finish-btn" style="display:none;">
+                        ✅ Mark as Course Finished
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/edit-student.js"></script>
+</body>
+</html>

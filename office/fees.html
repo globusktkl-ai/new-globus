@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Collection — ERP</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/fees.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div>
+            <div class="nav-title">Fee Collection</div>
+            <div class="nav-subtitle">Collect & Manage Fees</div>
+        </div>
+        <div class="nav-actions">
+            <a href="index.html" class="nav-btn">Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <!-- Search Card -->
+        <div class="card fee-search-card" id="search-card">
+            <h3 style="font-size:17px;color:#1a3a5c;margin-bottom:16px;">🔍 Find Student</h3>
+            <div class="form-group">
+                <input type="text" class="form-input" id="search-input" placeholder="Enter Student Code, Name or Phone">
+            </div>
+            <button class="btn btn-primary btn-block" id="search-btn">Search</button>
+            <div id="search-results" style="margin-top:16px;"></div>
+        </div>
+
+        <!-- Student Fee Card (hidden initially) -->
+        <div class="fee-student-card" id="student-card" style="display:none;">
+            <div class="fee-student-info" id="student-info"></div>
+            <div class="fee-bars" id="fee-bars"></div>
+
+            <!-- Payment Form -->
+            <div class="fee-payment-form">
+                <h3>💰 Collect Fee</h3>
+                <form id="payment-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Amount *</label>
+                            <input type="number" class="form-input" id="payment-amount" placeholder="Enter amount" required min="1">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Payment Mode</label>
+                            <select class="form-select" id="payment-mode">
+                                <option value="Cash">Cash</option>
+                                <option value="UPI">UPI</option>
+                                <option value="Card">Card</option>
+                                <option value="Bank Transfer">Bank Transfer</option>
+                                <option value="Cheque">Cheque</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Remarks</label>
+                        <input type="text" class="form-input" id="payment-remarks" placeholder="Optional remarks">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block" id="submit-payment">Save Payment</button>
+                </form>
+            </div>
+
+            <!-- Payment History -->
+            <div style="margin-top:24px;">
+                <h3 style="font-size:17px;color:#1a3a5c;margin-bottom:14px;">📜 Payment History</h3>
+                <div id="payment-history"></div>
+            </div>
+        </div>
+
+        <!-- Receipt Preview Modal -->
+        <div id="receipt-modal"></div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/fees.js"></script>
+</body>
+</html>
