@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Attendance — ERP</title>
+    <link rel="stylesheet" href="css/student.css">
+    <link rel="stylesheet" href="css/attendance.css">
+</head>
+<body>
+    <nav class="student-nav">
+        <div class="nav-content">
+            <div>
+                <div class="nav-title">Attendance</div>
+                <div class="nav-subtitle">Monthly Overview</div>
+            </div>
+            <a href="dashboard.html" class="nav-btn">← Back</a>
+        </div>
+    </nav>
+
+    <div class="student-container">
+        <!-- Overall Attendance -->
+        <div class="attendance-overview" id="attendance-overview">
+            <div class="attendance-percentage" id="overall-percent">0%</div>
+            <div class="attendance-label">Overall Attendance</div>
+            <div class="attendance-stats" id="overall-stats"></div>
+        </div>
+
+        <!-- Month Selector -->
+        <div class="month-selector">
+            <button class="month-btn" id="prev-month">←</button>
+            <div class="month-label" id="month-label"></div>
+            <button class="month-btn" id="next-month">→</button>
+        </div>
+
+        <!-- Calendar -->
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+            </div>
+            <div class="calendar-grid" id="calendar-grid"></div>
+            <div class="calendar-legend">
+                <div class="legend-item"><div class="legend-dot present"></div>Present</div>
+                <div class="legend-item"><div class="legend-dot absent"></div>Absent</div>
+                <div class="legend-item"><div class="legend-dot leave"></div>Leave</div>
+            </div>
+        </div>
+
+        <!-- Monthly Summary -->
+        <div class="monthly-summary">
+            <div class="summary-title" id="summary-title">Monthly Summary</div>
+            <div class="summary-bar" id="summary-bar"></div>
+            <div class="summary-details" id="summary-details"></div>
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/attendance.js"></script>
+</body>
+</html>

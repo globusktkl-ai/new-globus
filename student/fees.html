@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fee Details — ERP</title>
+    <link rel="stylesheet" href="css/student.css">
+    <link rel="stylesheet" href="css/fees.css">
+</head>
+<body>
+    <nav class="student-nav">
+        <div class="nav-content">
+            <div>
+                <div class="nav-title">Fee Details</div>
+                <div class="nav-subtitle">Payment History</div>
+            </div>
+            <a href="dashboard.html" class="nav-btn">← Back</a>
+        </div>
+    </nav>
+
+    <div class="student-container">
+        <!-- Fee Overview -->
+        <div class="fee-overview" id="fee-overview">
+            <h3>Fee Summary</h3>
+            <div class="fee-bars">
+                <div class="fee-bar">
+                    <div class="amount" id="total-fee">₹0</div>
+                    <div class="label">Total Fee</div>
+                </div>
+                <div class="fee-bar paid">
+                    <div class="amount" id="total-paid">₹0</div>
+                    <div class="label">Paid</div>
+                </div>
+                <div class="fee-bar balance">
+                    <div class="amount" id="balance">₹0</div>
+                    <div class="label">Balance</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment History -->
+        <div class="card">
+            <div class="card-title">📜 Payment History</div>
+            <div class="payment-list" id="payment-list"></div>
+        </div>
+    </div>
+
+    <!-- Receipt Modal Container -->
+    <div id="receipt-modal-container"></div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/fees.js"></script>
+</body>
+</html>

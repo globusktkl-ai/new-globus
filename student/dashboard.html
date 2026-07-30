@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Student Dashboard — ERP</title>
+    <link rel="stylesheet" href="css/student.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="student-nav">
+        <div class="nav-content">
+            <div>
+                <div class="nav-title" id="nav-title">Dashboard</div>
+                <div class="nav-subtitle" id="nav-date"></div>
+            </div>
+            <button class="nav-btn" onclick="handleLogout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="student-container" id="main-content">
+        <!-- Welcome Card -->
+        <div class="welcome-card" id="welcome-card">
+            <div class="welcome-photo" id="welcome-photo"></div>
+            <div class="welcome-info">
+                <h2 id="welcome-name">Welcome</h2>
+                <p id="welcome-course"></p>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stat-row" id="stat-row"></div>
+
+        <!-- Quick Menu -->
+        <div class="menu-section">
+            <h3>Quick Menu</h3>
+            <div class="menu-grid" id="menu-grid"></div>
+        </div>
+
+        <!-- Contact Office -->
+        <div class="card" style="margin-top:24px;">
+            <div class="card-title">📞 Contact Office</div>
+            <div class="contact-btns" id="office-contact"></div>
+        </div>
+    </div>
+
+    <!-- Blocked Status Overlay (hidden by default) -->
+    <div class="blocked-overlay" id="blocked-overlay" style="display:none;"></div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

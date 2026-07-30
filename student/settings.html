@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Settings — ERP</title>
+    <link rel="stylesheet" href="css/student.css">
+    <style>
+        .settings-section { margin-bottom: 24px; }
+        .settings-section h3 { font-size: 14px; color: #888; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .setting-item { background: #fff; border-radius: 14px; padding: 16px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .dark-mode .setting-item { background: #252542; }
+        .setting-info { flex: 1; }
+        .setting-info .setting-title { font-size: 15px; font-weight: 600; color: #1a3a5c; }
+        .dark-mode .setting-info .setting-title { color: #fff; }
+        .setting-info .setting-desc { font-size: 13px; color: #888; margin-top: 2px; }
+        .toggle-switch { position: relative; width: 50px; height: 28px; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .toggle-slider { position: absolute; cursor: pointer; inset: 0; background: #ccc; border-radius: 28px; transition: 0.3s; }
+        .toggle-slider:before { content: ''; position: absolute; height: 22px; width: 22px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: 0.3s; }
+        input:checked + .toggle-slider { background: #4a90d9; }
+        input:checked + .toggle-slider:before { transform: translateX(22px); }
+        .setting-btn { background: #f5f7fa; border: none; padding: 10px 16px; border-radius: 8px; font-size: 14px; color: #4a90d9; cursor: pointer; font-weight: 600; }
+        .dark-mode .setting-btn { background: #1a1a2e; }
+        .setting-btn:hover { background: #e0e7ef; }
+        .photo-upload-section { text-align: center; padding: 24px; background: #fff; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 16px; }
+        .dark-mode .photo-upload-section { background: #252542; }
+        .photo-upload-section .current-photo { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 16px; background: linear-gradient(135deg, #1a3a5c 0%, #2d5f8a 100%); display: flex; align-items: center; justify-content: center; font-size: 28px; color: #fff; overflow: hidden; }
+        .photo-upload-section .current-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .password-form { display: none; margin-top: 16px; padding: 16px; background: #f5f7fa; border-radius: 12px; }
+        .dark-mode .password-form { background: #1a1a2e; }
+        .password-form .form-group { margin-bottom: 14px; }
+        .password-form .form-label { display: block; font-size: 13px; font-weight: 600; color: #1a3a5c; margin-bottom: 6px; }
+        .dark-mode .password-form .form-label { color: #fff; }
+        .password-form .form-input { width: 100%; padding: 12px 14px; border: 1px solid #e0e7ef; border-radius: 10px; font-size: 16px; }
+        .dark-mode .password-form .form-input { background: #252542; border-color: #3a3a5c; color: #fff; }
+    </style>
+</head>
+<body>
+    <nav class="student-nav">
+        <div class="nav-content">
+            <div>
+                <div class="nav-title">Settings</div>
+                <div class="nav-subtitle">Preferences & Security</div>
+            </div>
+            <a href="dashboard.html" class="nav-btn">← Back</a>
+        </div>
+    </nav>
+
+    <div class="student-container">
+        <!-- Profile Photo -->
+        <div class="photo-upload-section">
+            <div class="current-photo" id="current-photo"></div>
+            <input type="file" id="photo-input" accept="image/*" style="display:none;">
+            <button class="btn btn-outline btn-sm" onclick="document.getElementById('photo-input').click()">Change Photo</button>
+        </div>
+
+        <!-- Appearance -->
+        <div class="settings-section">
+            <h3>Appearance</h3>
+            <div class="setting-item">
+                <div class="setting-info">
+                    <div class="setting-title">Dark Mode</div>
+                    <div class="setting-desc">Use dark theme</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Notifications -->
+        <div class="settings-section">
+            <h3>Notifications</h3>
+            <div class="setting-item">
+                <div class="setting-info">
+                    <div class="setting-title">Push Notifications</div>
+                    <div class="setting-desc">Receive alerts and updates</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="notif-toggle" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Security -->
+        <div class="settings-section">
+            <h3>Security</h3>
+            <div class="setting-item" style="flex-direction:column;align-items:stretch;">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <div class="setting-info">
+                        <div class="setting-title">Change Password</div>
+                        <div class="setting-desc">Update your login password</div>
+                    </div>
+                    <button class="setting-btn" id="change-pwd-btn">Change</button>
+                </div>
+                <div class="password-form" id="password-form">
+                    <div class="form-group">
+                        <label class="form-label">Current Password</label>
+                        <input type="password" class="form-input" id="current-password" placeholder="Enter current password">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">New Password</label>
+                        <input type="password" class="form-input" id="new-password" placeholder="Enter new password">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Confirm New Password</label>
+                        <input type="password" class="form-input" id="confirm-password" placeholder="Confirm new password">
+                    </div>
+                    <div style="display:flex;gap:10px;">
+                        <button class="btn btn-primary btn-sm" id="save-pwd-btn">Save Password</button>
+                        <button class="btn btn-secondary btn-sm" id="cancel-pwd-btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Info -->
+        <div class="settings-section">
+            <h3>Account</h3>
+            <div class="setting-item">
+                <div class="setting-info">
+                    <div class="setting-title" id="account-code"></div>
+                    <div class="setting-desc" id="account-email"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout -->
+        <button class="btn btn-danger btn-block" onclick="handleLogout()" style="margin-top:24px;">Logout</button>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>

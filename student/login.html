@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Student Login — ERP</title>
+    <link rel="stylesheet" href="css/student.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-card">
+            <div class="login-logo">
+                <div class="logo-icon">🎓</div>
+                <h1 id="inst-name">Student Portal</h1>
+                <p>Sign in with your student credentials</p>
+            </div>
+
+            <div class="login-error" id="login-error"></div>
+
+            <form class="login-form" id="login-form" autocomplete="off">
+                <div class="form-group">
+                    <label class="form-label" for="student-code">Student Code</label>
+                    <input type="text" id="student-code" class="form-input" placeholder="e.g. GTA0001" required autocomplete="username" style="text-transform: uppercase;">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" class="form-input" placeholder="Enter your password" required autocomplete="current-password">
+                        <button type="button" class="password-toggle" id="pwd-toggle">👁</button>
+                    </div>
+                </div>
+                <div class="remember-row">
+                    <input type="checkbox" id="remember" checked>
+                    <label for="remember">Remember me</label>
+                </div>
+                <button type="submit" class="login-btn" id="login-btn">Sign In</button>
+            </form>
+
+            <div class="login-footer">
+                <p>Forgot password? Contact office</p>
+                <a href="../index.html" style="display:block;margin-top:12px;">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

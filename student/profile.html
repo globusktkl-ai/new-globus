@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>My Profile — ERP</title>
+    <link rel="stylesheet" href="css/student.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <nav class="student-nav">
+        <div class="nav-content">
+            <div>
+                <div class="nav-title">My Profile</div>
+                <div class="nav-subtitle">Student Information</div>
+            </div>
+            <a href="dashboard.html" class="nav-btn">← Back</a>
+        </div>
+    </nav>
+
+    <div class="student-container">
+        <!-- Completion Banner (if finished) -->
+        <div class="completion-banner" id="completion-banner" style="display:none;">
+            <div class="completion-icon">🎓</div>
+            <h3>Course Completed!</h3>
+            <p>Congratulations on completing your course</p>
+        </div>
+
+        <!-- Profile Header -->
+        <div class="profile-header" id="profile-header">
+            <div class="profile-photo" id="profile-photo"></div>
+            <div class="profile-name" id="profile-name"></div>
+            <div class="profile-code" id="profile-code"></div>
+            <div class="profile-status" id="profile-status"></div>
+            <div class="profile-actions">
+                <button class="btn btn-outline btn-sm" onclick="window.print()">🖨 Print</button>
+            </div>
+        </div>
+
+        <!-- Personal Details -->
+        <div class="card">
+            <div class="card-title">👤 Personal Details</div>
+            <div class="info-list" id="personal-info"></div>
+            <div class="contact-btns" id="phone-actions"></div>
+        </div>
+
+        <!-- Course Details -->
+        <div class="card">
+            <div class="card-title">📚 Course Details</div>
+            <div class="info-list" id="course-info"></div>
+        </div>
+
+        <!-- Module Progress -->
+        <div class="card module-progress">
+            <div class="card-title">📦 Module Progress</div>
+            <div class="progress-timeline" id="module-timeline"></div>
+        </div>
+
+        <!-- Fee Summary -->
+        <div class="card">
+            <div class="card-title">💰 Fee Summary</div>
+            <div class="info-list" id="fee-info"></div>
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>
