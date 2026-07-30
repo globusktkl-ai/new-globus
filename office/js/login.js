@@ -65,8 +65,12 @@ if (form) {
                 throw new Error('Supabase client not initialized');
             }
 
-            const { data, error } = await window.supabaseClient
-                .from('office_users')
+            if (!window.supabaseClient) {
+    showError('Supabase not loaded');
+    btn.disabled = false;
+    btn.textContent = 'Sign In';
+    return;
+}
                 .select('*')
                 .eq('email', email)
                 .eq('password', password)
