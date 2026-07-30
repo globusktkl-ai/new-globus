@@ -1,0 +1,273 @@
+/**
+ * Student Attendance Styles
+ * Globus Technical Academy ERP v1.00 — Part 2
+ */
+
+/* ── Attendance Overview ── */
+.attendance-overview {
+    background: linear-gradient(135deg, #1a3a5c 0%, #2d5f8a 100%);
+    border-radius: 16px;
+    padding: 24px;
+    color: #fff;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.attendance-percentage {
+    font-size: 56px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.attendance-label {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.attendance-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.att-stat {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 12px 8px;
+}
+
+.att-stat .att-count {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.att-stat .att-label {
+    font-size: 11px;
+    opacity: 0.8;
+    margin-top: 2px;
+}
+
+.att-stat.present .att-count { color: #2ecc71; }
+.att-stat.absent .att-count { color: #e74c3c; }
+.att-stat.leave .att-count { color: #f39c12; }
+
+/* ── Month Selector ── */
+.month-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.dark-mode .month-selector {
+    background: #252542;
+}
+
+.month-selector .month-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a3a5c;
+}
+
+.dark-mode .month-selector .month-label {
+    color: #fff;
+}
+
+.month-btn {
+    background: #f5f7fa;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode .month-btn {
+    background: #1a1a2e;
+    color: #fff;
+}
+
+.month-btn:hover { background: #e0e7ef; }
+
+/* ── Calendar Grid ── */
+.calendar-container {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    margin-bottom: 16px;
+}
+
+.dark-mode .calendar-container {
+    background: #252542;
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.calendar-header span {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    padding: 8px 0;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    background: #f8f9fb;
+}
+
+.dark-mode .calendar-day {
+    background: #1a1a2e;
+    color: #e0e0e0;
+}
+
+.calendar-day.empty {
+    background: transparent;
+}
+
+.calendar-day.today {
+    border: 2px solid #4a90d9;
+}
+
+.calendar-day.present {
+    background: #27ae60;
+    color: #fff;
+}
+
+.calendar-day.absent {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.calendar-day.leave {
+    background: #f39c12;
+    color: #fff;
+}
+
+.calendar-day.half-day {
+    background: linear-gradient(135deg, #27ae60 50%, #f39c12 50%);
+    color: #fff;
+}
+
+/* ── Legend ── */
+.calendar-legend {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #666;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+}
+
+.legend-dot.present { background: #27ae60; }
+.legend-dot.absent { background: #e74c3c; }
+.legend-dot.leave { background: #f39c12; }
+
+/* ── Monthly Summary ── */
+.monthly-summary {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.dark-mode .monthly-summary {
+    background: #252542;
+}
+
+.summary-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a3a5c;
+    margin-bottom: 14px;
+}
+
+.dark-mode .summary-title {
+    color: #fff;
+}
+
+.summary-bar {
+    height: 10px;
+    background: #e0e7ef;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.summary-bar .present-bar { background: #27ae60; }
+.summary-bar .absent-bar { background: #e74c3c; }
+.summary-bar .leave-bar { background: #f39c12; }
+
+.summary-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    text-align: center;
+}
+
+.summary-item {
+    padding: 10px;
+    background: #f8f9fb;
+    border-radius: 8px;
+}
+
+.dark-mode .summary-item {
+    background: #1a1a2e;
+}
+
+.summary-item .count {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.summary-item .label {
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+}
+
+.summary-item.present .count { color: #27ae60; }
+.summary-item.absent .count { color: #e74c3c; }
+.summary-item.leave .count { color: #f39c12; }

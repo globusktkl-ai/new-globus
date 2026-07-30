@@ -1,0 +1,193 @@
+/**
+ * Student Fees Styles
+ * Globus Technical Academy ERP v1.00 — Part 2
+ */
+
+.fee-overview {
+    background: linear-gradient(135deg, #1a3a5c 0%, #2d5f8a 100%);
+    border-radius: 16px;
+    padding: 24px;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.fee-overview h3 {
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.85;
+    margin-bottom: 16px;
+}
+
+.fee-bars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.fee-bar {
+    text-align: center;
+    padding: 14px 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+}
+
+.fee-bar .amount {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.fee-bar .label {
+    font-size: 11px;
+    opacity: 0.8;
+    margin-top: 4px;
+}
+
+.fee-bar.paid .amount { color: #2ecc71; }
+.fee-bar.balance .amount { color: #f39c12; }
+
+/* ── Payment List ── */
+.payment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.payment-item {
+    background: #f8f9fb;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.dark-mode .payment-item {
+    background: #1a1a2e;
+}
+
+.payment-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.payment-receipt {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a3a5c;
+}
+
+.dark-mode .payment-receipt {
+    color: #fff;
+}
+
+.payment-meta {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+}
+
+.payment-amount {
+    font-size: 18px;
+    font-weight: 700;
+    color: #27ae60;
+    flex-shrink: 0;
+}
+
+.payment-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.payment-action-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    text-decoration: none;
+    background: #eaf2fb;
+    color: #4a90d9;
+}
+
+.payment-action-btn:hover {
+    background: #d5e5f7;
+    text-decoration: none;
+}
+
+/* ── Receipt Modal ── */
+.receipt-modal {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.receipt-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px dashed #e0e7ef;
+}
+
+.receipt-header .institute-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a3a5c;
+}
+
+.receipt-header .receipt-title {
+    font-size: 14px;
+    color: #888;
+    margin-top: 4px;
+}
+
+.receipt-header .receipt-number {
+    font-size: 16px;
+    font-weight: 600;
+    color: #4a90d9;
+    margin-top: 8px;
+}
+
+.receipt-body {
+    margin-bottom: 20px;
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+
+.receipt-row .r-label { color: #888; }
+.receipt-row .r-value { color: #333; font-weight: 500; }
+
+.receipt-amount-box {
+    background: #eafaf1;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    margin: 16px 0;
+}
+
+.receipt-amount-box .amount-label {
+    font-size: 12px;
+    color: #27ae60;
+    margin-bottom: 4px;
+}
+
+.receipt-amount-box .amount-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #27ae60;
+}
+
+.receipt-footer {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    padding-top: 16px;
+    border-top: 2px dashed #e0e7ef;
+}

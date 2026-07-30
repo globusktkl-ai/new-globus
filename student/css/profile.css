@@ -1,0 +1,204 @@
+/**
+ * Student Profile Styles
+ * Globus Technical Academy ERP v1.00 — Part 2
+ */
+
+.profile-header {
+    text-align: center;
+    padding: 28px 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    margin-bottom: 16px;
+}
+
+.dark-mode .profile-header {
+    background: #252542;
+}
+
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    background: linear-gradient(135deg, #1a3a5c 0%, #2d5f8a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #fff;
+    font-weight: 700;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-bottom: 4px;
+}
+
+.dark-mode .profile-name {
+    color: #fff;
+}
+
+.profile-code {
+    font-size: 14px;
+    color: #4a90d9;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.profile-status {
+    margin-bottom: 16px;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ── Module Progress ── */
+.module-progress {
+    padding: 0;
+}
+
+.progress-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.progress-timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    bottom: 12px;
+    width: 2px;
+    background: #e0e7ef;
+}
+
+.dark-mode .progress-timeline::before {
+    background: #3a3a5c;
+}
+
+.module-item {
+    position: relative;
+    padding: 14px 0;
+}
+
+.module-item::before {
+    content: '';
+    position: absolute;
+    left: -22px;
+    top: 20px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #e0e7ef;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.module-item.completed::before {
+    background: #27ae60;
+}
+
+.module-item.current::before {
+    background: #4a90d9;
+    box-shadow: 0 0 0 4px rgba(74,144,217,0.2);
+}
+
+.module-item.pending::before {
+    background: #e0e7ef;
+}
+
+.module-content {
+    background: #f8f9fb;
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+
+.dark-mode .module-content {
+    background: #1a1a2e;
+}
+
+.module-item.current .module-content {
+    background: #eaf2fb;
+    border: 1px solid #4a90d9;
+}
+
+.dark-mode .module-item.current .module-content {
+    background: #1a2a4c;
+}
+
+.module-item.completed .module-content {
+    background: #eafaf1;
+}
+
+.dark-mode .module-item.completed .module-content {
+    background: #1a3a2c;
+}
+
+.module-number {
+    font-size: 12px;
+    color: #888;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.module-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a3a5c;
+    margin-top: 2px;
+}
+
+.dark-mode .module-name {
+    color: #e0e0e0;
+}
+
+.module-status {
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.module-status.completed { color: #27ae60; }
+.module-status.current { color: #4a90d9; }
+.module-status.pending { color: #999; }
+
+/* ── Completion Banner ── */
+.completion-banner {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.completion-banner .completion-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.completion-banner h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.completion-banner p {
+    font-size: 14px;
+    opacity: 0.9;
+}
