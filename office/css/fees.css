@@ -1,0 +1,139 @@
+/**
+ * Fees Page Styles
+ * Globus Technical Academy ERP v1.00
+ */
+
+.fee-search-card {
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+.fee-student-card {
+    max-width: 700px;
+    margin: 0 auto 20px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.fee-student-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.fee-student-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.fee-student-details h3 {
+    font-size: 18px;
+    color: #1a3a5c;
+    margin-bottom: 2px;
+}
+
+.fee-student-details p {
+    font-size: 14px;
+    color: #888;
+}
+
+.fee-bars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.fee-bar {
+    text-align: center;
+    padding: 14px;
+    border-radius: 12px;
+    background: #f5f7fa;
+}
+
+.fee-bar .fee-bar-amount {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.fee-bar .fee-bar-label {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+}
+
+.fee-bar.total .fee-bar-amount { color: #1a3a5c; }
+.fee-bar.paid .fee-bar-amount { color: #27ae60; }
+.fee-bar.balance .fee-bar-amount { color: #e74c3c; }
+
+@media (max-width: 500px) {
+    .fee-bars {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fee-payment-form {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.fee-payment-form h3 {
+    font-size: 17px;
+    color: #1a3a5c;
+    margin-bottom: 18px;
+}
+
+.receipt-preview {
+    background: #f9fafb;
+    border: 1px dashed #d0d7e0;
+    border-radius: 12px;
+    padding: 28px;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.receipt-preview h3 {
+    font-size: 18px;
+    color: #1a3a5c;
+    margin-bottom: 8px;
+}
+
+.receipt-preview .receipt-number {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.receipt-preview .receipt-details {
+    text-align: left;
+}
+
+.receipt-preview .receipt-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.receipt-preview .receipt-row .r-label {
+    color: #888;
+}
+
+.receipt-preview .receipt-row .r-value {
+    color: #333;
+    font-weight: 600;
+}
+
+.receipt-preview .receipt-amount {
+    font-size: 28px;
+    font-weight: 800;
+    color: #27ae60;
+    margin: 20px 0;
+}

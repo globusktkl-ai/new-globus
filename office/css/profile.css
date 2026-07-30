@@ -1,0 +1,163 @@
+/**
+ * Student Profile Styles
+ * Globus Technical Academy ERP v1.00
+ */
+
+.profile-header {
+    text-align: center;
+    padding: 28px 20px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+}
+
+.profile-header .profile-photo {
+    margin-bottom: 14px;
+}
+
+.profile-header .profile-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-bottom: 4px;
+}
+
+.profile-header .profile-code {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.profile-header .profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.profile-section {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+}
+
+.profile-section h2 {
+    font-size: 17px;
+    color: #1a3a5c;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eaf2fb;
+}
+
+.profile-info-grid {
+    display: grid;
+    gap: 0;
+}
+
+.profile-info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+    gap: 16px;
+}
+
+.profile-info-row:last-child {
+    border-bottom: none;
+}
+
+.profile-info-row .info-label {
+    color: #888;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.profile-info-row .info-value {
+    color: #1a3a5c;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: right;
+    word-break: break-word;
+}
+
+.fee-summary-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.fee-summary-item {
+    text-align: center;
+    padding: 16px;
+    border-radius: 12px;
+    background: #f5f7fa;
+}
+
+.fee-summary-item .amount {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a3a5c;
+}
+
+.fee-summary-item .label {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+}
+
+.fee-summary-item.paid .amount { color: #27ae60; }
+.fee-summary-item.balance .amount { color: #e74c3c; }
+
+@media (max-width: 500px) {
+    .fee-summary-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Payment history table */
+.payment-history .payment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+    gap: 12px;
+}
+
+.payment-history .payment-item:last-child {
+    border-bottom: none;
+}
+
+.payment-history .payment-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.payment-history .payment-receipt {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a3a5c;
+}
+
+.payment-history .payment-date {
+    font-size: 13px;
+    color: #999;
+    margin-top: 2px;
+}
+
+.payment-history .payment-mode {
+    font-size: 12px;
+    color: #888;
+}
+
+.payment-history .payment-amount {
+    font-size: 18px;
+    font-weight: 700;
+    color: #27ae60;
+    flex-shrink: 0;
+}

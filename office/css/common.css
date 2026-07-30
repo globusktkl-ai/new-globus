@@ -1,0 +1,440 @@
+/**
+ * Common Styles — Office ERP
+ * Globus Technical Academy ERP v1.00
+ */
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: #4a90d9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; height: auto; }
+
+/* ── Top Navbar ── */
+.top-nav {
+    background: #1a3a5c;
+    color: #fff;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.top-nav .nav-title {
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.top-nav .nav-subtitle {
+    font-size: 12px;
+    opacity: 0.75;
+    margin-top: 1px;
+}
+
+.top-nav .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.top-nav .nav-btn {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.top-nav .nav-btn:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* ── Page Container ── */
+.page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ── Cards ── */
+.card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+}
+
+/* ── Form Elements ── */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a3a5c;
+    margin-bottom: 6px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e0e7ef;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    background: #fff;
+    font-family: inherit;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: #4a90d9;
+    box-shadow: 0 0 0 3px rgba(74,144,217,0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-error {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* ── Buttons ── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+    text-decoration: none;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn:hover {
+    opacity: 0.92;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #4a90d9;
+    color: #fff;
+}
+
+.btn-success {
+    background: #27ae60;
+    color: #fff;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #f0f2f5;
+    color: #1a3a5c;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #4a90d9;
+    border: 1px solid #4a90d9;
+}
+
+.btn-sm {
+    padding: 8px 14px;
+    font-size: 13px;
+    border-radius: 8px;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ── Tables ── */
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.data-table th {
+    background: #f5f7fa;
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid #e0e7ef;
+    white-space: nowrap;
+}
+
+.data-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f0f2f5;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.data-table tr:hover {
+    background: #fafbfc;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ── Mobile Cards (responsive table replacement) ── */
+@media (max-width: 768px) {
+    .mobile-cards .table-container {
+        background: none;
+        box-shadow: none;
+    }
+
+    .mobile-cards .data-table {
+        display: none;
+    }
+
+    .student-card-mobile {
+        background: #fff;
+        border-radius: 14px;
+        padding: 18px;
+        margin-bottom: 12px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .student-card-mobile .card-header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 12px;
+    }
+
+    .student-card-mobile .card-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .student-card-mobile .card-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1a3a5c;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .student-card-mobile .card-sub {
+        font-size: 13px;
+        color: #888;
+        margin-top: 2px;
+    }
+
+    .student-card-mobile .card-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .student-card-mobile .card-detail-item {
+        font-size: 13px;
+    }
+
+    .student-card-mobile .card-detail-item .label {
+        color: #999;
+    }
+
+    .student-card-mobile .card-detail-item .value {
+        color: #333;
+        font-weight: 500;
+    }
+
+    .student-card-mobile .card-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+}
+
+/* ── Stat Grid ── */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 500px) {
+    .stat-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+}
+
+/* ── Menu Grid ── */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+}
+
+@media (max-width: 500px) {
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+}
+
+.menu-btn:active {
+    transform: scale(0.96);
+}
+
+.menu-btn:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    text-decoration: none;
+}
+
+/* ── Photo Upload ── */
+.photo-upload {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px dashed #e0e7ef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto 16px;
+    transition: border-color 0.2s;
+}
+
+.photo-upload:hover {
+    border-color: #4a90d9;
+}
+
+.photo-upload img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-upload .photo-placeholder {
+    text-align: center;
+    color: #bbb;
+    font-size: 13px;
+}
+
+.photo-upload .photo-placeholder span {
+    display: block;
+    font-size: 28px;
+    margin-bottom: 4px;
+}
+
+/* ── Print Styles ── */
+@media print {
+    .top-nav, .no-print, .nav-actions, .menu-grid, .tab-bar, .btn {
+        display: none !important;
+    }
+    body {
+        background: #fff;
+    }
+    .page-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f5f7fa;
+}
+::-webkit-scrollbar-thumb {
+    background: #c0c8d4;
+    border-radius: 3px;
+}

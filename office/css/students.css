@@ -1,0 +1,85 @@
+/**
+ * Student List Styles
+ * Globus Technical Academy ERP v1.00
+ */
+
+.students-toolbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.students-toolbar .search-wrapper {
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+}
+
+.students-toolbar .search-wrapper span {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #aaa;
+}
+
+.students-toolbar .search-wrapper input {
+    width: 100%;
+    padding: 12px 14px 12px 44px;
+    border: 1px solid #e0e7ef;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.students-toolbar .search-wrapper input:focus {
+    border-color: #4a90d9;
+}
+
+.students-count {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: opacity 0.2s;
+    text-decoration: none;
+}
+
+.action-btn:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.action-btn.view { background: #eaf2fb; color: #4a90d9; }
+.action-btn.edit { background: #fef3e2; color: #f39c12; }
+.action-btn.fee { background: #eafaf1; color: #27ae60; }
+.action-btn.delete { background: #fdecea; color: #e74c3c; }
+
+.td-actions {
+    display: flex;
+    gap: 6px;
+}
+
+@media (max-width: 600px) {
+    .students-toolbar {
+        flex-direction: column;
+    }
+    .students-toolbar .search-wrapper {
+        width: 100%;
+    }
+}

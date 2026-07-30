@@ -1,0 +1,43 @@
+/**
+ * Dashboard Styles
+ * Globus Technical Academy ERP v1.00
+ */
+
+.dashboard-header {
+    margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+    font-size: 24px;
+    color: #1a3a5c;
+    margin-bottom: 4px;
+}
+
+.dashboard-header p {
+    font-size: 14px;
+    color: #888;
+}
+
+.stat-card {
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.section-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #1a3a5c;
+    margin-bottom: 16px;
+}
+
+.menu-btn {
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.menu-btn:active {
+    transform: scale(0.96);
+}
