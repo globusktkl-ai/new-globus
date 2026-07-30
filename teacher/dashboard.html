@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Teacher Dashboard — ERP</title>
+    <link rel="stylesheet" href="css/teacher.css">
+</head>
+<body>
+    <nav class="teacher-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <div class="nav-icon">👨‍🏫</div>
+                <div>
+                    <div class="nav-title">Teacher Portal</div>
+                    <div class="nav-subtitle" id="nav-date"></div>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-btn" onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="teacher-container">
+        <!-- Welcome -->
+        <div class="card" style="background:linear-gradient(135deg, #2d5f8a 0%, #1a3a5c 100%);color:#fff;margin-bottom:20px;">
+            <div style="display:flex;align-items:center;gap:16px;">
+                <div id="teacher-photo" style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:24px;overflow:hidden;"></div>
+                <div>
+                    <h2 id="teacher-name" style="font-size:20px;font-weight:600;margin-bottom:2px;">Welcome</h2>
+                    <p id="teacher-code" style="font-size:14px;opacity:0.85;"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stat-grid" id="stat-grid"></div>
+
+        <!-- Quick Menu -->
+        <div class="menu-section">
+            <h3>Quick Menu</h3>
+            <div class="menu-grid" id="menu-grid"></div>
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

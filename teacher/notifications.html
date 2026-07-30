@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Notifications — ERP</title>
+    <link rel="stylesheet" href="css/teacher.css">
+    <style>
+        .notification-list { display: flex; flex-direction: column; gap: 12px; }
+        .notification-item { background: #fff; border-radius: 14px; padding: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: relative; }
+        .dark-mode .notification-item { background: #252542; }
+        .notification-item.unread { background: #eaf2fb; border-left: 4px solid #4a90d9; }
+        .dark-mode .notification-item.unread { background: #1a2a4c; }
+        .notif-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+        .notif-title { font-size: 15px; font-weight: 600; color: #1a3a5c; }
+        .dark-mode .notif-title { color: #fff; }
+        .notif-date { font-size: 12px; color: #888; white-space: nowrap; }
+        .notif-message { font-size: 14px; color: #666; line-height: 1.5; }
+        .dark-mode .notif-message { color: #bbb; }
+        .notif-type { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; }
+        .notif-type.info { background: #eaf2fb; color: #4a90d9; }
+        .notif-type.success { background: #eafaf1; color: #27ae60; }
+        .notif-type.warning { background: #fef5e7; color: #f39c12; }
+        .notif-type.error { background: #fdecea; color: #e74c3c; }
+        .mark-read-btn { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 12px; color: #4a90d9; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <nav class="teacher-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <div class="nav-icon">🔔</div>
+                <div>
+                    <div class="nav-title">Notifications</div>
+                    <div class="nav-subtitle" id="notif-count">0 notifications</div>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <a href="dashboard.html" class="nav-btn">← Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="teacher-container">
+        <div class="notification-list" id="notification-list"></div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+</html>

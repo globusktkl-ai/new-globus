@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Reports — ERP</title>
+    <link rel="stylesheet" href="css/teacher.css">
+    <link rel="stylesheet" href="css/reports.css">
+</head>
+<body>
+    <nav class="teacher-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <div class="nav-icon">📊</div>
+                <div>
+                    <div class="nav-title">Reports</div>
+                    <div class="nav-subtitle">Attendance & Performance</div>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <a href="dashboard.html" class="nav-btn">← Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="teacher-container">
+        <!-- Report Types -->
+        <div class="report-types" id="report-types">
+            <div class="report-type-card active" data-type="daily">
+                <div class="report-icon">📅</div>
+                <div class="report-name">Daily Attendance</div>
+            </div>
+            <div class="report-type-card" data-type="monthly">
+                <div class="report-icon">📆</div>
+                <div class="report-name">Monthly Report</div>
+            </div>
+            <div class="report-type-card" data-type="student">
+                <div class="report-icon">👤</div>
+                <div class="report-name">Student Report</div>
+            </div>
+            <div class="report-type-card" data-type="low-attendance">
+                <div class="report-icon">⚠️</div>
+                <div class="report-name">Low Attendance</div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="report-filters">
+            <h3>🔍 Filters</h3>
+            <div class="filter-grid">
+                <div class="form-group">
+                    <label class="form-label">Date</label>
+                    <input type="date" class="form-input" id="filter-date">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Month</label>
+                    <input type="month" class="form-input" id="filter-month">
+                </div>
+                <div class="form-group" id="student-filter-group">
+                    <label class="form-label">Student</label>
+                    <select class="form-select" id="filter-student">
+                        <option value="">All Students</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-actions">
+                <button class="btn btn-primary" onclick="generateReport()">Generate Report</button>
+                <button class="btn btn-secondary" onclick="resetFilters()">Reset</button>
+            </div>
+        </div>
+
+        <!-- Report Output -->
+        <div class="report-output" id="report-output" style="display:none;">
+            <div class="report-header">
+                <h3 id="report-title">Report</h3>
+                <div class="export-actions">
+                    <button class="export-btn print" onclick="window.print()">🖨 Print</button>
+                </div>
+            </div>
+            <div class="report-stats" id="report-stats"></div>
+            <div style="overflow-x:auto;">
+                <table class="report-table" id="report-table">
+                    <thead id="report-thead"></thead>
+                    <tbody id="report-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/reports.js"></script>
+</body>
+</html>

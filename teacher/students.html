@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>My Students — ERP</title>
+    <link rel="stylesheet" href="css/teacher.css">
+</head>
+<body>
+    <nav class="teacher-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <div class="nav-icon">👥</div>
+                <div>
+                    <div class="nav-title">My Students</div>
+                    <div class="nav-subtitle" id="student-count">0 students</div>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <a href="dashboard.html" class="nav-btn">← Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="teacher-container">
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" id="search-input" placeholder="Search by name, code or phone...">
+            </div>
+            <select id="filter-module" class="form-select" style="max-width:180px;">
+                <option value="">All Modules</option>
+            </select>
+        </div>
+
+        <!-- Students List -->
+        <div class="mobile-cards" id="students-container">
+            <div class="table-container">
+                <table class="data-table" id="students-table">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Module</th>
+                            <th>Attendance</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="students-tbody"></tbody>
+                </table>
+            </div>
+            <div id="mobile-cards"></div>
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/students.js"></script>
+</body>
+</html>
