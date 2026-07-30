@@ -1,47 +1,263 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Office Dashboard — ERP</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <title>Office Dashboard - New Globus ERP</title>
+
+```
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        font-family:Arial,Helvetica,sans-serif;
+        background:#f4f6f9;
+    }
+
+    .header{
+        background:#1a3a5c;
+        color:#fff;
+        padding:18px 20px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+    .header-left{
+        display:flex;
+        align-items:center;
+        gap:12px;
+    }
+
+    .header img{
+        width:46px;
+        height:46px;
+        object-fit:contain;
+    }
+
+    .header h1{
+        font-size:22px;
+    }
+
+    .header p{
+        font-size:13px;
+        opacity:0.85;
+    }
+
+    .logout-btn{
+        background:#fff;
+        color:#1a3a5c;
+        border:none;
+        padding:10px 16px;
+        border-radius:8px;
+        font-weight:600;
+        cursor:pointer;
+    }
+
+    .container{
+        padding:20px;
+        max-width:1100px;
+        margin:auto;
+    }
+
+    .welcome{
+        margin-bottom:22px;
+    }
+
+    .welcome h2{
+        color:#1a3a5c;
+        margin-bottom:6px;
+    }
+
+    .cards{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:18px;
+        margin-bottom:28px;
+    }
+
+    .card{
+        background:#fff;
+        border-radius:16px;
+        padding:22px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .card h3{
+        color:#666;
+        font-size:14px;
+        margin-bottom:12px;
+    }
+
+    .card .value{
+        font-size:32px;
+        font-weight:700;
+        color:#1a3a5c;
+    }
+
+    .menu{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:16px;
+    }
+
+    .menu a{
+        background:#fff;
+        border-radius:14px;
+        padding:20px;
+        text-decoration:none;
+        color:#1a3a5c;
+        font-weight:600;
+        box-shadow:0 6px 18px rgba(0,0,0,0.08);
+        transition:transform .15s;
+    }
+
+    .menu a:hover{
+        transform:translateY(-2px);
+    }
+</style>
+```
+
 </head>
 <body>
-    <!-- Top Navigation -->
-    <nav class="top-nav">
-        <div>
-            <div class="nav-title" id="nav-title">Office Dashboard</div>
-            <div class="nav-subtitle" id="nav-subtitle"></div>
-        </div>
-        <div class="nav-actions">
-            <button class="nav-btn" onclick="handleLogout()">Logout ↗</button>
-        </div>
-    </nav>
 
-    <div class="page-container">
-        <!-- Dashboard Header -->
-        <div class="dashboard-header" id="dashboard-header">
-            <h1>Welcome back</h1>
-            <p id="dash-date"></p>
-        </div>
+<div class="header">
 
-        <!-- Stat Cards -->
-        <div class="stat-grid" id="stat-grid">
-            <!-- Filled by JS -->
-        </div>
+```
+<div class="header-left">
+    <img src="../assets/logo.png" alt="Logo">
+    <div>
+        <h1>Office Dashboard</h1>
+        <p>New Globus ERP</p>
+    </div>
+</div>
 
-        <!-- Quick Menu -->
-        <div class="section-title">Quick Menu</div>
-        <div class="menu-grid" id="menu-grid">
-            <!-- Filled by JS -->
-        </div>
+<button class="logout-btn" onclick="logout()">
+    Logout
+</button>
+```
+
+</div>
+
+<div class="container">
+
+```
+<div class="welcome">
+    <h2 id="welcome-name">Welcome</h2>
+    <p>Manage admissions, fees, students, teachers and reports.</p>
+</div>
+
+<div class="cards">
+
+    <div class="card">
+        <h3>Students</h3>
+        <div class="value" id="student-count">0</div>
     </div>
 
-    <script src="../assets/js/supabase.js"></script>
-    <script src="../assets/shared/helpers.js"></script>
-    <script src="../assets/shared/ui.js"></script>
-    <script src="../assets/shared/components.js"></script>
-    <script src="js/dashboard.js"></script>
+    <div class="card">
+        <h3>Today's Collection</h3>
+        <div class="value" id="today-collection">₹0</div>
+    </div>
+
+    <div class="card">
+        <h3>Pending Fees</h3>
+        <div class="value" id="pending-fees">₹0</div>
+    </div>
+
+    <div class="card">
+        <h3>Modules</h3>
+        <div class="value" id="module-count">5</div>
+    </div>
+
+</div>
+
+<div class="menu">
+
+    <a href="new-admission.html">New Admission</a>
+
+    <a href="students.html">Student List</a>
+
+    <a href="fee-collection.html">Fee Collection</a>
+
+    <a href="teachers.html">Teachers</a>
+
+    <a href="reports.html">Reports</a>
+
+    <a href="notifications.html">Notifications</a>
+
+    <a href="settings.html">Settings</a>
+
+</div>
+```
+
+</div>
+
+<script src="../assets/js/supabase.js"></script>
+
+<script>
+(async function(){
+
+    if(localStorage.getItem('office_logged_in') !== 'true'){
+        window.location.replace('login.html');
+        return;
+    }
+
+    document.getElementById('welcome-name').textContent =
+        'Welcome, ' + (localStorage.getItem('office_user_name') || 'Office');
+
+    const sb = window.supabaseClient;
+
+    if(!sb) return;
+
+    try{
+
+        const {count:students} = await sb
+            .from('students')
+            .select('*',{count:'exact',head:true});
+
+        document.getElementById('student-count').textContent =
+            students || 0;
+
+        const {data:today} = await sb
+            .from('fee_payments')
+            .select('amount')
+            .eq('payment_date', new Date().toISOString().slice(0,10));
+
+        const total = (today || []).reduce((s,r)=>s+Number(r.amount),0);
+
+        document.getElementById('today-collection').textContent =
+            '₹' + total.toLocaleString();
+
+        const {data:pending} = await sb
+            .from('students')
+            .select('balance');
+
+        const pendingTotal =
+            (pending || []).reduce((s,r)=>s+Number(r.balance),0);
+
+        document.getElementById('pending-fees').textContent =
+            '₹' + pendingTotal.toLocaleString();
+
+    }catch(e){
+        console.error(e);
+    }
+
+})();
+
+function logout(){
+    localStorage.removeItem('office_logged_in');
+    localStorage.removeItem('office_user_id');
+    localStorage.removeItem('office_user_name');
+    localStorage.removeItem('office_user_role');
+    localStorage.removeItem('office_remember');
+    window.location.replace('login.html');
+}
+</script>
+
 </body>
 </html>
