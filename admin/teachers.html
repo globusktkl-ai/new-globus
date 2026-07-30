@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Management — ERP Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <nav class="admin-nav">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <div class="nav-logo">👨‍🏫</div>
+                <div><div class="nav-title">Teacher Management</div><div class="nav-subtitle">Admin Portal</div></div>
+            </div>
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="teachers.html" class="nav-link active">Teachers</a>
+                <button class="nav-btn" onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="page-header">
+            <h1>👨‍🏫 Teacher Management</h1>
+            <button class="btn btn-primary" onclick="showAddModal()">➕ Add Teacher</button>
+        </div>
+
+        <div class="toolbar">
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" id="search-input" placeholder="Search teachers...">
+            </div>
+        </div>
+
+        <div class="card" style="padding:0;">
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Code</th><th>Name</th><th>Email</th><th>Phone</th><th>Specialization</th><th>Students</th><th>Status</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="teachers-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Modal -->
+    <div class="modal-overlay" id="add-modal" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Add Teacher</h3><button class="modal-close" onclick="closeModal()">×</button></div>
+            <div class="modal-body">
+                <form id="teacher-form">
+                    <div class="form-group"><label class="form-label">Full Name *</label><input type="text" class="form-input" id="teacher-name" required></div>
+                    <div class="form-row">
+                        <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="teacher-email"></div>
+                        <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input" id="teacher-phone"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label class="form-label">Qualification</label><input type="text" class="form-input" id="teacher-qual"></div>
+                        <div class="form-group"><label class="form-label">Specialization</label><input type="text" class="form-input" id="teacher-spec"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveTeacher()">Save Teacher</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/teachers.js"></script>
+</body>
+</html>

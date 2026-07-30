@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management — ERP Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <nav class="admin-nav">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <div class="nav-logo">👥</div>
+                <div>
+                    <div class="nav-title">Student Management</div>
+                    <div class="nav-subtitle">Admin Portal</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="students.html" class="nav-link active">Students</a>
+                <a href="reports.html" class="nav-link">Reports</a>
+                <button class="nav-btn" onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="page-header">
+            <div>
+                <h1>👥 Student Management</h1>
+                <p class="subtitle" id="student-count">Loading...</p>
+            </div>
+            <div style="display:flex;gap:10px;">
+                <button class="btn btn-secondary" onclick="exportStudents()">📤 Export</button>
+                <a href="../office/new-admission.html" class="btn btn-primary" target="_blank">➕ New Admission</a>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-status="Active">Active</button>
+            <button class="tab-btn" data-status="Course Finished">Finished</button>
+            <button class="tab-btn" data-status="Discontinued">Discontinued</button>
+            <button class="tab-btn" data-status="Archived">Archived</button>
+            <button class="tab-btn" data-status="all">All</button>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" id="search-input" placeholder="Search students...">
+            </div>
+            <select class="form-select" id="filter-course" style="max-width:180px;">
+                <option value="">All Courses</option>
+            </select>
+            <select class="form-select" id="bulk-action" style="max-width:180px;">
+                <option value="">Bulk Actions</option>
+                <option value="activate">Set Active</option>
+                <option value="finish">Mark Finished</option>
+                <option value="discontinue">Mark Discontinued</option>
+                <option value="archive">Archive</option>
+            </select>
+            <button class="btn btn-secondary" onclick="applyBulkAction()">Apply</button>
+        </div>
+
+        <!-- Table -->
+        <div class="card" style="padding:0;">
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="select-all"></th>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Course</th>
+                            <th>Module</th>
+                            <th>Balance</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="students-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="../assets/shared/components.js"></script>
+    <script src="js/students.js"></script>
+</body>
+</html>

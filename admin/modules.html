@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Management — ERP Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <nav class="admin-nav">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <div class="nav-logo">📦</div>
+                <div><div class="nav-title">Module Management</div><div class="nav-subtitle">Admin Portal</div></div>
+            </div>
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <button class="nav-btn" onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <div class="admin-container">
+        <div class="page-header"><h1>📦 Module Management</h1></div>
+        <div class="card">
+            <p style="margin-bottom:16px;">Modules are linked to courses. Select a course to manage its modules.</p>
+            <a href="../office/modules.html" class="btn btn-primary" target="_blank">Open Module Manager</a>
+        </div>
+    </div>
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script>
+        var ADMIN_SESSION_KEY = 'erp_admin_session';
+        window.handleLogout = async function () {
+            try { await signOut(); } catch (e) { }
+            localStorage.removeItem(ADMIN_SESSION_KEY);
+            window.location.replace('login.html');
+        };
+        var admin = JSON.parse(localStorage.getItem(ADMIN_SESSION_KEY) || sessionStorage.getItem(ADMIN_SESSION_KEY) || 'null');
+        if (!admin || !admin.id) window.location.replace('login.html');
+        if (localStorage.getItem('erp_admin_dark_mode') === 'true') document.body.classList.add('dark-mode');
+    </script>
+</body>
+</html>

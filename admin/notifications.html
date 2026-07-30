@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications — ERP Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <nav class="admin-nav">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <div class="nav-logo">🔔</div>
+                <div><div class="nav-title">Notifications</div><div class="nav-subtitle">Broadcast System</div></div>
+            </div>
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <button class="nav-btn" onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <div class="admin-container">
+        <div class="page-header"><h1>🔔 Broadcast Notifications</h1></div>
+        
+        <div class="card">
+            <h3 style="margin-bottom:16px;">📢 Send Notification</h3>
+            <form id="notif-form">
+                <div class="form-group"><label class="form-label">Title *</label><input type="text" class="form-input" id="notif-title" required></div>
+                <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" id="notif-message" rows="3"></textarea></div>
+                <div class="form-row">
+                    <div class="form-group"><label class="form-label">Target Audience</label>
+                        <select class="form-select" id="notif-target">
+                            <option value="all">All Users</option>
+                            <option value="student">Students Only</option>
+                            <option value="teacher">Teachers Only</option>
+                            <option value="office">Office Only</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><label class="form-label">Priority</label>
+                        <select class="form-select" id="notif-priority">
+                            <option value="normal">Normal</option>
+                            <option value="high">High</option>
+                            <option value="urgent">Urgent</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">📤 Send Notification</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h3 style="margin-bottom:16px;">📜 Recent Notifications</h3>
+            <div id="notif-list"></div>
+        </div>
+    </div>
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/shared/helpers.js"></script>
+    <script src="../assets/shared/ui.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+</html>
