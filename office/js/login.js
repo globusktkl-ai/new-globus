@@ -56,9 +56,9 @@ if (form) {
         try {
             const sb = await waitForSupabase();
 
-if (!sb) {
-    throw new Error('Supabase not initialized');
-}
+            if (!sb) {
+                throw new Error('Supabase not initialized');
+            }
 
             const { data, error } = await sb
                 .from('office_users')
@@ -86,8 +86,7 @@ if (!sb) {
                 localStorage.removeItem('office_remember');
             }
 
-            btn.textContent = 'Success';
-            window.location.href = 'index.html';
+            window.location.replace('index.html');
 
         } catch (err) {
             console.error(err);
