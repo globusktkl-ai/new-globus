@@ -4,11 +4,11 @@
 * Office Login
   */
 
-(function () {
+;(function () {
 'use strict';
 
 ```
-// If already logged in
+// Already logged in
 if (localStorage.getItem('office_logged_in') === 'true') {
     window.location.replace('index.html');
     return;
@@ -30,7 +30,7 @@ if (toggle && passwordInput) {
     });
 }
 
-// Login form
+// Login
 const form = document.getElementById('login-form');
 
 if (form) {
@@ -43,6 +43,7 @@ if (form) {
 
         const errorBox = document.getElementById('login-error');
         errorBox.style.display = 'none';
+        errorBox.textContent = '';
 
         if (!email || !password) {
             showError('Please enter email and password');
@@ -54,23 +55,8 @@ if (form) {
         btn.textContent = 'Signing In...';
 
         try {
-            // Wait until Supabase client is ready
-            let attempts = 0;
-            while (!window.supabaseClient && attempts < 50) {
-                await new Promise(r => setTimeout(r, 100));
-                attempts++;
-            }
-
-            if (!window.supabaseClient) {
-                throw new Error('Supabase client not initialized');
-            }
-
-            if (!window.supabaseClient) {
-    showError('Supabase not loaded');
-    btn.disabled = false;
-    btn.textContent = 'Sign In';
-    return;
-}
+            const { data, error } = await window.supabaseClient
+                .from('office_users')
                 .select('*')
                 .eq('email', email)
                 .eq('password', password)
@@ -84,13 +70,11 @@ if (form) {
                 return;
             }
 
-            // Save session
             localStorage.setItem('office_logged_in', 'true');
             localStorage.setItem('office_user_id', data.id);
             localStorage.setItem('office_user_name', data.full_name);
             localStorage.setItem('office_user_role', data.role);
 
-            // Remember login
             if (remember) {
                 localStorage.setItem('office_remember', 'true');
             } else {
@@ -101,7 +85,7 @@ if (form) {
 
         } catch (err) {
             console.error(err);
-            showError(err.message || 'Unable to connect to server');
+            showError(err.message || 'Login failed');
             btn.disabled = false;
             btn.textContent = 'Sign In';
         }
