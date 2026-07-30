@@ -1,0 +1,371 @@
+/**
+ * Attendance Management Styles
+ * Globus Technical Academy ERP v1.00 — Part 3
+ */
+
+/* ── Date Selector ── */
+.date-selector {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.dark-mode .date-selector { background: #252542; }
+
+.date-selector label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a3a5c;
+}
+
+.dark-mode .date-selector label { color: #e0e0e0; }
+
+.date-selector input[type="date"] {
+    padding: 10px 14px;
+    border: 1px solid #e0e7ef;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+.dark-mode .date-selector input[type="date"] {
+    background: #1a1a2e;
+    border-color: #3a3a5c;
+    color: #e0e0e0;
+}
+
+.date-nav-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    background: #f5f7fa;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode .date-nav-btn { background: #1a1a2e; color: #e0e0e0; }
+
+.date-nav-btn:hover { background: #e0e7ef; }
+
+/* ── Attendance Summary Bar ── */
+.attendance-summary-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .attendance-summary-bar { grid-template-columns: repeat(2, 1fr); }
+}
+
+.summary-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.dark-mode .summary-item { background: #252542; }
+
+.summary-item .count {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a3a5c;
+}
+
+.dark-mode .summary-item .count { color: #fff; }
+
+.summary-item .label {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.summary-item.present .count { color: #27ae60; }
+.summary-item.absent .count { color: #e74c3c; }
+.summary-item.leave .count { color: #f39c12; }
+
+/* ── Attendance List ── */
+.attendance-list {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.dark-mode .attendance-list { background: #252542; }
+
+.attendance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f2f5;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.dark-mode .attendance-header { border-bottom-color: #3a3a5c; }
+
+.attendance-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a3a5c;
+}
+
+.dark-mode .attendance-header h3 { color: #fff; }
+
+.bulk-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.bulk-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.bulk-btn:hover { opacity: 0.85; }
+
+.bulk-btn.present { background: #eafaf1; color: #27ae60; }
+.bulk-btn.absent { background: #fdecea; color: #e74c3c; }
+.bulk-btn.leave { background: #fef5e7; color: #f39c12; }
+
+/* ── Attendance Row ── */
+.attendance-row {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    border-bottom: 1px solid #f5f5f5;
+    gap: 14px;
+}
+
+.dark-mode .attendance-row { border-bottom-color: #3a3a5c; }
+
+.attendance-row:last-child { border-bottom: none; }
+
+.attendance-row .student-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+.attendance-row .student-photo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #4a90d9;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.attendance-row .student-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.attendance-row .student-details {
+    min-width: 0;
+}
+
+.attendance-row .student-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a3a5c;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dark-mode .attendance-row .student-name { color: #fff; }
+
+.attendance-row .student-code {
+    font-size: 12px;
+    color: #888;
+}
+
+.attendance-row .status-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.status-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    background: #f5f7fa;
+}
+
+.dark-mode .status-btn { background: #1a1a2e; }
+
+.status-btn:hover { transform: scale(1.05); }
+
+.status-btn.present { border-color: #27ae60; }
+.status-btn.present.active { background: #27ae60; color: #fff; }
+
+.status-btn.absent { border-color: #e74c3c; }
+.status-btn.absent.active { background: #e74c3c; color: #fff; }
+
+.status-btn.leave { border-color: #f39c12; }
+.status-btn.leave.active { background: #f39c12; color: #fff; }
+
+/* ── Calendar View ── */
+.calendar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: #fff;
+    border-radius: 14px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.dark-mode .calendar-nav { background: #252542; }
+
+.calendar-nav .month-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a3a5c;
+}
+
+.dark-mode .calendar-nav .month-label { color: #fff; }
+
+.calendar-container {
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.dark-mode .calendar-container { background: #252542; }
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.calendar-header span {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    padding: 8px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    background: #f8f9fb;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.dark-mode .calendar-day { background: #1a1a2e; color: #e0e0e0; }
+
+.calendar-day:hover { background: #e0e7ef; }
+.calendar-day.empty { background: transparent; cursor: default; }
+.calendar-day.today { border: 2px solid #4a90d9; }
+
+.calendar-day .day-num { font-size: 14px; }
+
+.calendar-day .day-status {
+    position: absolute;
+    bottom: 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.calendar-day .day-status.present { background: #27ae60; }
+.calendar-day .day-status.absent { background: #e74c3c; }
+.calendar-day .day-status.leave { background: #f39c12; }
+
+/* ── Save Button Fixed ── */
+.save-attendance-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 16px 20px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    z-index: 100;
+}
+
+.dark-mode .save-attendance-bar { background: #252542; }
+
+.save-attendance-bar .btn {
+    min-width: 150px;
+}
+
+@media (max-width: 600px) {
+    .attendance-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .attendance-row .status-buttons {
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    .status-btn {
+        flex: 1;
+        max-width: 80px;
+    }
+}
