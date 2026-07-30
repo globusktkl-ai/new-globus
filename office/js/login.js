@@ -60,7 +60,7 @@ if (!sb) {
     throw new Error('Supabase not initialized');
 }
 
-            const { data, error } = await window.supabase
+            const { data, error } = await sb
                 .from('office_users')
                 .select('*')
                 .eq('email', email)
