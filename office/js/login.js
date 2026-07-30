@@ -30,7 +30,7 @@ if (toggle && passwordInput) {
     });
 }
 
-// Login
+// Login form
 const form = document.getElementById('login-form');
 
 if (form) {
@@ -54,6 +54,17 @@ if (form) {
         btn.textContent = 'Signing In...';
 
         try {
+            // Wait until Supabase client is ready
+            let attempts = 0;
+            while (!window.supabaseClient && attempts < 50) {
+                await new Promise(r => setTimeout(r, 100));
+                attempts++;
+            }
+
+            if (!window.supabaseClient) {
+                throw new Error('Supabase client not initialized');
+            }
+
             const { data, error } = await window.supabaseClient
                 .from('office_users')
                 .select('*')
@@ -86,7 +97,7 @@ if (form) {
 
         } catch (err) {
             console.error(err);
-            showError('Unable to connect to server');
+            showError(err.message || 'Unable to connect to server');
             btn.disabled = false;
             btn.textContent = 'Sign In';
         }
