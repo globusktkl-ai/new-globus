@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globus Technical Academy ERP</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a3a5c 0%, #2d5f8a 100%);
+            padding: 20px;
+        }
+        .landing {
+            text-align: center;
+            color: #fff;
+            max-width: 500px;
+        }
+        .landing .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.15);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .landing h1 { font-size: 28px; margin-bottom: 8px; }
+        .landing p { font-size: 16px; opacity: 0.8; margin-bottom: 36px; }
+        .portal-links {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .portal-link {
+            display: block;
+            padding: 16px 24px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 14px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.15s;
+            backdrop-filter: blur(10px);
+        }
+        .portal-link:hover { background: rgba(255,255,255,0.22); transform: translateY(-2px); }
+        .portal-link span { display: block; font-size: 13px; font-weight: 400; opacity: 0.7; margin-top: 4px; }
+        .footer { margin-top: 40px; font-size: 13px; opacity: 0.5; }
+    </style>
+</head>
+<body>
+    <div class="landing">
+        <div class="logo">G</div>
+        <h1 id="inst-name">Globus Technical Academy</h1>
+        <p id="inst-tagline">Excellence in Technical Education</p>
+
+        <div class="portal-links">
+            <a href="office/login.html" class="portal-link">
+                🏢 Office Portal
+                <span>Admissions, Fees, Students, Reports</span>
+            </a>
+            <a href="student/login.html" class="portal-link">
+                🎓 Student Portal
+                <span>Attendance, Fees, Profile, Notifications</span>
+            </a>
+            <a href="teacher/login.html" class="portal-link">
+                👨‍🏫 Teacher Portal
+                <span>Attendance, Module Progress, Reports</span>
+            </a>
+            <a href="#" class="portal-link" style="opacity:0.5;pointer-events:none;">
+                ⚙️ Admin Portal
+                <span>Coming Soon — Part 4</span>
+            </a>
+        </div>
+
+        <div class="footer">ERP v1.00</div>
+    </div>
+</body>
+</html>
