@@ -54,9 +54,11 @@ if (form) {
         btn.textContent = 'Signing In...';
 
         try {
-            if (!window.supabase) {
-                throw new Error('Supabase not initialized');
-            }
+            const sb = await waitForSupabase();
+
+if (!sb) {
+    throw new Error('Supabase not initialized');
+}
 
             const { data, error } = await window.supabase
                 .from('office_users')
