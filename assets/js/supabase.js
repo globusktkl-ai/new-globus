@@ -2,17 +2,24 @@
 
 * NEW GLOBUS ERP v1.01
 * Supabase Client
-* Shared across Office / Student / Teacher / Admin
   */
 
 const SUPABASE_URL = 'https://kwrugdbrzrfbmibaccwr.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_Pf_pB13Hv4ycYmNSiD75XQ_cT0b5eOM';
 
-// Create Supabase client immediately
-const supabaseClient = window.supabase.createClient(
+// Load UMD version (browser compatible)
+const script = document.createElement('script');
+script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
+
+script.onload = function () {
+window.supabaseClient = window.supabase.createClient(
 SUPABASE_URL,
 SUPABASE_ANON_KEY
 );
+};
 
-// Make available globally
-window.supabaseClient = supabaseClient;
+script.onerror = function () {
+console.error('Supabase failed to load');
+};
+
+document.head.appendChild(script);
