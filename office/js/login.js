@@ -8,13 +8,13 @@
 'use strict';
 
 ```
-// Already logged in?
+// If already logged in
 if (localStorage.getItem('office_logged_in') === 'true') {
     window.location.replace('index.html');
     return;
 }
 
-// Password toggle
+// Password show/hide
 const toggle = document.getElementById('pwd-toggle');
 const passwordInput = document.getElementById('password');
 
@@ -30,7 +30,7 @@ if (toggle && passwordInput) {
     });
 }
 
-// Login
+// Login form
 const form = document.getElementById('login-form');
 
 if (form) {
@@ -55,10 +55,6 @@ if (form) {
 
         try {
             const sb = await waitForSupabase();
-
-            if (!sb) {
-                throw new Error('Supabase not initialized');
-            }
 
             const { data, error } = await sb
                 .from('office_users')
@@ -86,6 +82,7 @@ if (form) {
                 localStorage.removeItem('office_remember');
             }
 
+            btn.textContent = 'Success';
             window.location.replace('index.html');
 
         } catch (err) {
