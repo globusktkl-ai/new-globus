@@ -54,7 +54,14 @@ if (form) {
         btn.textContent = 'Signing In...';
 
         try {
-            const sb = await waitForSupabase();
+            if (!window.sb) {
+    showError('Please wait 2 seconds and try again.');
+    btn.disabled = false;
+    btn.textContent = 'Sign In';
+    return;
+}
+
+const sb = window.sb;
 
             const { data, error } = await sb
                 .from('office_users')
